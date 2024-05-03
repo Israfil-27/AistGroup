@@ -1,0 +1,11 @@
+.weatherCartContainer{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.weatherCart{
+    border: 2px solid #000;
+    padding: 10px;
+    margin: 10px;
+    flex-basis: 30%;
+}
