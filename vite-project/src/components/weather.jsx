@@ -5,22 +5,39 @@ import "./style.css"
 const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 const API_KEY = '0688fd031b2dfd134dc5a747bff9d99e';
 
-const ToCelsius = (Celsius) => {
-    return Celsius - 273.15;
+const ToCelsius = (Kelvin) => {
+    return Kelvin - 273.15;
 };
 
 const WeatherComponent = () => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [savedWeatherData, setSavedWeatherData] = useState([]);
+
     const handleFetchWeather = async () => {
         try {
             const response = await axios.get(`${API_URL}?q=${city}&appid=${API_KEY}`);
             const data = response.data;
             console.log(data);
-            const updatedSavedData = [{ city: data.name, icon:data.weather ,country :data.sys.country ,temperature: ToCelsius(data.main.temp) }];
-            setSavedWeatherData(updatedSavedData.concat(savedWeatherData.slice(0, 4)));
-            localStorage.setItem('weatherData', JSON.stringify(updatedSavedData));
+
+            const isCityAlreadySaved = savedWeatherData.some((savedData) => savedData.city === data.name);
+
+            if (!isCityAlreadySaved) {
+                const updatedSavedData = [
+                    {
+                        city: data.name,
+                        icon: data.weather[0].icon,
+                        country: data.sys.country,
+                        temperature: ToCelsius(data.main.temp)
+                    },
+                    ...savedWeatherData.slice(0, 4)
+                ];
+                setSavedWeatherData(updatedSavedData);
+                localStorage.setItem('weatherData', JSON.stringify(updatedSavedData));
+            } else {
+                console.log('City already saved:', data.name);
+            }
+
             setWeatherData(data);
         } catch (error) {
             console.error('Hava məlumatları alınarkən xəta:', error);
@@ -34,16 +51,13 @@ const WeatherComponent = () => {
         }
     }, []);
 
-
-    
     return (
         <div>
             <input
                 type="text"
                 placeholder="Şəhər adını daxil edin"
                 value={city}
-                onChange={(e) => setCity(e.target.value)  }
-                
+                onChange={(e) => setCity(e.target.value)}
             />
             <button onClick={handleFetchWeather}>Hava Məlumatını Al</button>
 
@@ -60,9 +74,7 @@ const WeatherComponent = () => {
                 {savedWeatherData.map((data, index) => (
                     <div className='weatherCart' key={index}>
                         <h4>{data.city}</h4>
-                        <h4>Country:{data.country}</h4>
-                        {console.log(data)}
-                        <img src={data} alt="" />
+                        <h4>Country: {data.country}</h4>
                         <p>Temperatur: {data.temperature.toFixed(1)}°C</p>
                     </div>
                 ))}
