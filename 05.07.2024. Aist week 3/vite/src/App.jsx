@@ -51,7 +51,7 @@ const App = () => {
 
   console.log(carTypes);
   const showModal = () => {
-    setIsModalOpen(true);
+    setIsModalOpen(true);l
   };
 
   const handleOk = () => {
