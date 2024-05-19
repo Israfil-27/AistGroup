@@ -1,0 +1,182 @@
+.header {
+  .container {
+    width: 120rem;
+    height: 7.5rem;
+    padding: 1.875rem 10.125rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .dropdown{
+      display: none;
+    }
+    .logoContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logoIcon {
+        width: 3.75rem;
+        height: 3.75rem;
+      }
+
+      .logoText {
+        width: 8.5rem;
+        height: 1.25rem;
+      }
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      height: 4.6875rem;
+      border-radius: 0.75rem;
+      padding: 0.625rem 2.5rem;
+      border: 0.25rem solid #1f1f1f;
+      gap: 1.875rem;
+      background-color: #0f0f0f;
+
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #1f1f1f;
+        }
+
+        &.active {
+          background-color: #1f1f1f;
+        }
+      }
+    }
+
+    .icons {
+      display: flex;
+      gap: 1.875rem;
+
+      svg {
+        width: 1.4725rem;
+        height: 1.59375rem;
+        cursor: pointer;
+        color: #fff;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .searchContainer {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .icons {
+        margin-right: 1.875rem;
+        display: flex;
+        gap: 1.875rem;
+        .iconButton {
+          background-color: transparent;
+          svg {
+            width: 1.4725rem;
+            height: 1.59375rem;
+            color: #fff;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .searchInput {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: #0f0f0f;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.1);
+        display: flex;
+        color: white;
+        align-items: center;
+
+        input {
+          border: none;
+          outline: none;
+          width: 15rem;
+          padding: 0.5rem;
+          border-radius: 0.25rem;
+          background-color: #0f0f0f;
+          color: #fff;
+        }
+        svg {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  header {
+    .container {
+      max-width: 1440px;
+      height: 98px;
+      padding: 24px 80px !important;
+      .dropdown{
+        display: none;
+      }
+      .menu {
+        width: 426px;
+        height: 61px !important;
+        padding: 0.625rem 1.7rem !important;
+        gap: 10px !important ;
+
+        button {
+          font-size: 14px !important;
+          padding: 0.625rem 0.35rem !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 391px) {
+  header {
+    .container {
+      .searchContainer {
+        display: none !important;
+      }
+      .dropdown{
+        display: block !important;
+        padding-right: 60px;
+      }
+      .menu {
+        display: none !important;
+      }
+      max-width: 390px;
+      padding: 0 !important;
+      max-height: 102px;
+      .logoContainer {
+        max-width: 116.08px;
+        max-height: 35px;
+        .logoIcon {
+          width: 35px;
+          height: 35px !important;
+        }
+        .logoText {
+          width: 79.33px;
+          height: 11.67px !important;
+        }
+      }
+    }
+  }
+}

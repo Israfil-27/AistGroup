@@ -1,0 +1,36 @@
+{
+  "slices": [
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./cartImage.png"
+    },
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./img.png"
+    }
+  ],
+  "cartData": [
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./cartImage.png"
+    },
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./img.png"
+    },
+    {
+      "img":"./img.png"
+    }
+  ]
+}

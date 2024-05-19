@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1498px;
+  height: 88px;
+
+  h2 {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 57px;
+    text-align: left;
+    color: #fff;
+  }
+
+  .arrowButtonsContainer {
+    width: 257px;
+    height: 88px;
+    background: #0f0f0f;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+
+    .arrowIconContainer {
+      width: 56px;
+      height: 56px;
+      padding: 14px;
+      border-radius: 8px;
+      background-color: #1a1a1a;
+      border: 1px solid #1f1f1f;
+      display: grid;
+      place-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+
+      .arrow {
+        width: 1.75rem;
+        height: 1.75rem;
+        color: #fff;
+        transition: transform 0.3s;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: #1f1f1f;
+        transform: scale(1.1);
+
+        .arrow {
+          transform: translateX(-0.125rem);
+        }
+      }
+
+      &:hover .arrow.arrowRight,
+      &:focus .arrow.arrowRight {
+        transform: translateX(0.125rem);
+      }
+    }
+
+    .indicators {
+      display: flex;
+      justify-content: center;
+      width: 81px;
+      gap: 0.1875rem;
+
+      .indicator {
+        width: 16.33px;
+        height: 4px;
+        background-color: #ccc;
+        border-radius: 6.25rem;
+        border: none;
+        cursor: pointer;
+        transition: width 0.3s, background-color 0.3s;
+
+        &.active {
+          width: 23px;
+          background-color: #e50000;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: #e50000;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    max-width: 1200px;
+    max-height: 48px;
+    h2 {
+      font-size: 30px;
+    }
+    .arrowButtonsContainer{
+      max-width: 205px;
+      max-height: 68px;
+      gap: 10px;
+      padding: 10px;
+      .arrowIconContainer{
+        max-width: 44px;
+        max-height: 44px;
+        display: grid;
+        padding: 0;
+        place-items: center;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 391px) {
+  .wrapper {
+    max-width: 390px;
+    max-height: 48px;
+    h2 {
+      font-size: 24px;
+    }
+    .arrowButtonsContainer{
+      display: none;
+    }
+  }
+}

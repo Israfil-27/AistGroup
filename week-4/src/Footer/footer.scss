@@ -1,0 +1,146 @@
+.footer {
+  margin: 0 auto;
+  width: 1920px;
+  height: 505px;
+  padding: 100px 162px 50px 162px;
+  background-color: #0f0f0f;
+  .footerListContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    width: 1596px;
+    height: 204px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      .icons {
+        display: flex;
+        gap: 10px;
+        img {
+          cursor: pointer;
+        }
+      }
+      li {
+        margin-bottom: 10px;
+        color: #fff;
+
+        a {
+          text-decoration: none;
+          color: #999999;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          strong {
+            font-size: 20px;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .footerEnd {
+    margin-top: 100px;
+    width: 100%;
+    height: 51px;
+    .footerEndContainer {
+      height: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid #999999;
+      p {
+        color: #999999;
+        font-size: 18px;
+      }
+      .links {
+        display: flex;
+        gap: 5px;
+        a {
+          text-decoration: none;
+          border-right: 1px solid #999999;
+          padding-right: 4px;
+          color: #999999;
+        }
+        .borderNone {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footer {
+    margin-top: 100px;
+    max-width: 1440px;
+    max-height: 364px;
+    padding: 82px;
+    .footerListContainer {
+      max-width: 1280px;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      height: 173px;
+      li{
+        font-size: 14px !important;
+      }
+      strong{
+        font-size: 18px !important;
+      }
+    }
+    .footerEnd{
+      margin-top:50px;
+    }
+    .icons{
+      img{
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+}
+
+
+
+
+@media only screen and (max-width: 391px) {
+  .footer {
+    position: relative;
+    max-width: 390px;
+    max-height: 648px;
+    padding-left: 15px;
+    padding-top: 50px;
+    .footerListContainer {
+      max-width: 390px;
+      gap: 30px 100px; 
+      display: flex;
+      flex-wrap: wrap;
+      height: 173px;
+      li{
+        font-size: 12px !important;
+      }
+      strong{
+        font-size: 16px !important;
+      }
+    }
+    .footerEnd{
+      position: absolute;
+      max-width: 350px;
+      bottom: -16px;
+      p{
+        font-size: 8px !important;
+      }
+      a{
+        font-size: 8px;
+      }
+    }
+    .icons{
+      img{
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+}
