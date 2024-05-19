@@ -47,8 +47,8 @@ const Search: React.FC = () => {
       </button>
       {error && <p className="error">{error}</p>}
       <div className="results">
-        {results.map((cart: any) => (
-          <Cart key={cart?.id} cart={cart} content={"test"} />
+        {results.map((cart:any) => (
+          <Cart key={cart?.id} cart={cart}  />
         ))}
       </div>
     </div>

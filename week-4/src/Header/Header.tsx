@@ -9,7 +9,6 @@ const Header: React.FC = () => {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState("Home");
 
-
   const handleSearchButtonClick = () => {
     setShowSearchInput(!showSearchInput);
   };
@@ -17,7 +16,6 @@ const Header: React.FC = () => {
   const handleNavItemClick = (item: string) => {
     setActiveNavItem(item);
   };
-
 
 
   return (
@@ -28,7 +26,7 @@ const Header: React.FC = () => {
           <img className="logoText" src="./StreamVibe.png" alt="logo" />
         </div>
         <Dropdown
-          items={["Home", "Movies & Shows", "Support", "Subscriptions","Serach"]}
+          items={["Home", "Movies & Series", "Support", "Subscriptions", "Search"]}
         />
         <nav className="menu">
           <button
@@ -41,7 +39,7 @@ const Header: React.FC = () => {
             className={activeNavItem === "Movies" ? "active" : ""}
             onClick={() => handleNavItemClick("Movies")}
           >
-            Movies & Shows
+            Movies & Series
           </button>
           <button
             className={activeNavItem === "Support" ? "active" : ""}
@@ -59,23 +57,10 @@ const Header: React.FC = () => {
         <div className="searchContainer">
           <div className="icons">
             <div className="iconButton" onClick={handleSearchButtonClick}>
-              <Link to="search"> <CiSearch /></Link>
+              <Link to="search"><CiSearch /></Link>
             </div>
             <AiOutlineBell />
           </div>
-          {/* {showSearchInput && (
-            <div className="searchInput">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={handleInputChange}
-              />
-              <button className="clearButton" onClick={handleClearSearch}>
-                <AiOutlineClose />
-              </button>
-            </div>
-          )} */}
         </div>
       </div>
     </header>

@@ -1,8 +1,16 @@
+import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { GoArrowRight } from "react-icons/go";
 import "./cart.scss";
 
-const Carts = ({ carts, imgLength, content, data }: any) => {
+interface CartsProps {
+  carts: string;
+  imgLength: number;
+  content: string;
+  data: any[];
+}
+
+const Carts: React.FC<CartsProps> = ({ carts, imgLength, content, data }) => {
   console.log(data);
 
   const cartDataSlice = data.slice(0, imgLength);

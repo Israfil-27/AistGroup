@@ -1,5 +1,3 @@
-
-import "./dropwtown.scss"
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
@@ -8,7 +6,7 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({ items }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -17,7 +15,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items }) => {
   return (
     <div className="dropdown">
       <button onClick={toggleDropdown} className="dropdown-toggle">
-        <img src="./mobilnav.png" alt="" />
+        <img src="./mobilnav.png" alt="Mobile Navigation Icon" />
       </button>
       <ul className={classNames('dropdown-menu', { 'dropdown-menu-open': isOpen })}>
         {items.map((item, index) => (

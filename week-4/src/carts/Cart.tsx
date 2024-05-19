@@ -1,10 +1,18 @@
+import React from "react";
 import { GoArrowRight } from "react-icons/go";
 import "./cart.scss";
 
-const defaultImagePath =
+interface CartProps {
+  cart: {
+    poster_path?: string;
+    title: string;
+  };
+}
+
+const defaultImagePath: string =
   "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1vdmllfGVufDB8fDB8fHww";
 
-const Cart = ({ cart }: any) => {
+const Cart: React.FC<CartProps> = ({ cart }) => {
   return (
     <div className="cart">
       <div className="img">

@@ -5,10 +5,17 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { api } from "../Api/api";
 import "./Carousel.scss";
 
+interface Movie {
+  id: number;
+  original_name: string;
+  overview: string;
+  backdrop_path: string;
+}
+
 const Carousel = () => {
   const [slide, setSlide] = useState<number>(0);
 
-  const { isPending, error, data } = useQuery({
+  const { isPending, error, data } = useQuery<Movie[], Error>({
     queryKey: ["main-carousel"],
     queryFn: async () => {
       const response = await api.get(
@@ -22,7 +29,7 @@ const Carousel = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  const arrowData = data?.slice(0, 4) ?? [];
+  const arrowData: Movie[] = data?.slice(0, 4) ?? [];
 
   const nextSlide = () => {
     setSlide((prev) => (prev === arrowData.length - 1 ? 0 : prev + 1));
@@ -35,7 +42,7 @@ const Carousel = () => {
   return (
     <div className="carouselContainer">
       <div className="carousel">
-        {arrowData.map((item: any, idx: number) => (
+        {arrowData.map((item: Movie, idx: number) => (
           <div
             key={item.id}
             className={slide === idx ? "slide" : "slide slideHidden"}
@@ -72,7 +79,7 @@ const Carousel = () => {
             <GoArrowLeft className="arrow arrowLeft" />
           </div>
           <span className="indicators">
-            {arrowData.map((item: any, idx: number) => (
+            {arrowData.map((item: Movie, idx: number) => (
               <button
                 key={item.id}
                 className={`indicator ${slide === idx ? "active" : ""}`}
