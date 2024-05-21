@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import "./dropwtown.scss"
 
 interface DropdownProps {
   items: string[];
@@ -15,7 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items }) => {
   return (
     <div className="dropdown">
       <button onClick={toggleDropdown} className="dropdown-toggle">
-        <img src="./mobilnav.png" alt="Mobile Navigation Icon" />
+        <img src="./mobilnav.png" alt="Mobil Navigasyon İkonu" />
       </button>
       <ul className={classNames('dropdown-menu', { 'dropdown-menu-open': isOpen })}>
         {items.map((item, index) => (
